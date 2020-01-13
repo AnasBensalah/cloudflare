@@ -61,6 +61,10 @@ module Cloudflare
 				value[:proxied]
 			end
 
+			def zone_id
+				value[:zone_id]
+			end
+
 			def to_s
 				"#{@record[:name]} #{@record[:type]} #{@record[:content]}"
 			end
@@ -74,7 +78,7 @@ module Cloudflare
 			end
 
 			TTL_AUTO = 1
-			
+
 			def create(type, name, content, **options)
 				represent_message(self.post(type: type, name: name, content: content, **options))
 			end
